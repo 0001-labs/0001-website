@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - 0001</title>
+    <meta name="description" content="About 0001 - We design digital products." />
+
+    <!-- Prevent FOUC -->
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("theme");
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        const theme = savedTheme || systemTheme;
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+
+    <!-- DS one CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ds-one@0.3.0-alpha.7/DS1/1-root/one.css" />
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="./design/css/tokens.css" />
+    <link rel="stylesheet" href="./design/css/screen.css" />
+
+    <!-- DS one i18n setup -->
+    <script>
+      window.DS_ONE_TRANSLATIONS_FILE = "./language/translations.json";
+    </script>
+
+    <!-- DS one bundle -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ds-one@0.3.0-alpha.7/dist/ds-one.bundle.min.js"></script>
+
+    <style>
+      .about-content {
+        padding: 300px 60px 120px;
+        background-color: var(--base-white);
+        border: var(--border-default);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <main class="main">
+        <section class="about-content">
+          <div class="content" style="max-width: 495px;">
+            <!-- Title and description -->
+            <div style="display: flex; flex-direction: column; gap: 32px; margin-bottom: 64px;">
+              <h1 class="title"><ds-text>About 0001</ds-text></h1>
+              <div class="text" style="max-width: 451px; line-height: 1.6;">
+                <p style="margin-bottom: 16px;"><ds-text>0001 was founded in 2024 with a simple mission: design digital products that tell stories.</ds-text></p>
+                <p style="margin-bottom: 16px;"><ds-text>We believe in component-first development, scaling through reuse, and building agentic-first software.</ds-text></p>
+                <p><ds-text>Our products enable solo builders to operate at the scale of small teams.</ds-text></p>
+              </div>
+            </div>
+
+            <!-- Photo -->
+            <div style="width: 400px; height: 300px; margin-bottom: 64px;">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800" alt="Office" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+
+            <!-- Offices -->
+            <div style="margin-bottom: 64px;">
+              <h2 class="title title--small" style="margin-bottom: 64px;"><ds-text>Our offices</ds-text></h2>
+              <div class="offices">
+                <div class="office">
+                  <h3 class="office__title"><ds-text>Copenhagen</ds-text></h3>
+                  <address class="office__address">
+                    Tomsgårdsvej 22A,<br />
+                    DK2400<br />
+                    København NV
+                  </address>
+                </div>
+                <div class="office" style="width: 235px;">
+                  <h3 class="office__title"><ds-text>Tokyo</ds-text></h3>
+                  <address class="office__address">
+                    1F, Takagi Building,<br />
+                    2-20-7 Azabujuban,<br />
+                    Minato-ku,<br />
+                    Tokyo 106-0045
+                  </address>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact CTA -->
+            <ds-button primary href="/contact">Contact</ds-button>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer" style="padding-top: 300px;">
+          <nav style="display: flex; justify-content: flex-end; gap: 32px;">
+            <a href="/products" class="footer__link"><ds-text>Products</ds-text></a>
+            <a href="/services" class="footer__link"><ds-text>Services</ds-text></a>
+            <a href="/about" class="footer__link" style="color: var(--every-green);"><ds-text>About</ds-text></a>
+          </nav>
+          <div class="footer__bottom" style="margin-top: 20px;">
+            <p class="footer__copyright"><ds-text>© 2025 0001</ds-text></p>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>

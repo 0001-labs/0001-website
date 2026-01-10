@@ -1,0 +1,19 @@
+{
+  "name": "0001-website",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "bun run fetch-notion && vite build",
+    "fetch-notion": "bun run scripts/fetch-notion.ts",
+    "preview": "vite preview",
+    "deploy": "bun run build && wrangler pages deploy dist"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0",
+    "typescript": "^5.6.0"
+  },
+  "dependencies": {
+    "@notionhq/client": "^2.2.0"
+  }
+}

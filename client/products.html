@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products - 0001</title>
+    <meta name="description" content="Products by 0001 - Our digital products and tools." />
+
+    <!-- Prevent FOUC -->
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("theme");
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        const theme = savedTheme || systemTheme;
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+
+    <!-- DS one CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ds-one@0.3.0-alpha.7/DS1/1-root/one.css" />
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="./design/css/tokens.css" />
+    <link rel="stylesheet" href="./design/css/screen.css" />
+
+    <!-- DS one i18n setup -->
+    <script>
+      window.DS_ONE_TRANSLATIONS_FILE = "./language/translations.json";
+    </script>
+
+    <!-- DS one bundle -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ds-one@0.3.0-alpha.7/dist/ds-one.bundle.min.js"></script>
+
+    <style>
+      .products-page {
+        background-color: var(--chartreuse-green);
+        min-height: 100vh;
+        position: relative;
+      }
+
+      .products-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background-color: var(--chartreuse-green);
+        z-index: 10;
+      }
+
+      .products-content {
+        position: relative;
+        background-color: #fcfff6;
+        margin-top: 100px;
+        padding: 180px 60px 120px;
+        min-height: calc(100vh - 100px);
+      }
+
+      .products-table {
+        display: flex;
+        justify-content: center;
+      }
+
+      .table__column--product {
+        width: 240px;
+      }
+
+      .table__column--users,
+      .table__column--retention,
+      .table__column--status {
+        width: 120px;
+      }
+
+      .table__cell--link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .external-link-icon {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .external-link-icon svg {
+        width: 16px;
+        height: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="products-page">
+      <!-- Header -->
+      <header class="products-header">
+        <div class="header">
+          <a href="/" class="header__logo"><ds-text>0001</ds-text></a>
+          <nav class="header__nav">
+            <a href="/products" class="header__link header__link--active"><ds-text>Products</ds-text></a>
+            <a href="#" class="header__link"><ds-text>Architecture</ds-text></a>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Main content -->
+      <main class="products-content">
+        <div class="products-table">
+          <!-- Product column -->
+          <div class="table__column table__column--product">
+            <div class="table__header"><ds-text>Product</ds-text></div>
+            <div class="table__cell table__cell--link">
+              <span>allmythin.gs</span>
+              <a href="https://allmythin.gs" target="_blank" rel="noopener" class="external-link-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            </div>
+            <div class="table__cell">Ritonel</div>
+            <div class="table__cell">Ezo</div>
+            <div class="table__cell table__cell--link">
+              <span>DS one</span>
+              <a href="https://github.com/0001-labs/ds-one" target="_blank" rel="noopener" class="external-link-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            </div>
+            <div class="table__cell table__cell--link">
+              <span>theseareuntitled.com</span>
+              <a href="https://theseareuntitled.com" target="_blank" rel="noopener" class="external-link-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            </div>
+            <div class="table__cell">archcss</div>
+          </div>
+
+          <!-- Users column -->
+          <div class="table__column table__column--users">
+            <div class="table__header"><ds-text>Users</ds-text></div>
+            <div class="table__cell">0</div>
+            <div class="table__cell">0</div>
+            <div class="table__cell">0</div>
+            <div class="table__cell">0</div>
+            <div class="table__cell">0</div>
+            <div class="table__cell">0</div>
+          </div>
+
+          <!-- Retention column -->
+          <div class="table__column table__column--retention">
+            <div class="table__header"><ds-text>Retention</ds-text></div>
+            <div class="table__cell">0%</div>
+            <div class="table__cell">0%</div>
+            <div class="table__cell">0%</div>
+            <div class="table__cell">0%</div>
+            <div class="table__cell">0%</div>
+            <div class="table__cell">0%</div>
+          </div>
+
+          <!-- Status column -->
+          <div class="table__column table__column--status">
+            <div class="table__header"><ds-text>Status</ds-text></div>
+            <div class="table__cell table__cell--status">In progress</div>
+            <div class="table__cell table__cell--status">In progress</div>
+            <div class="table__cell table__cell--status">In progress</div>
+            <div class="table__cell table__cell--status">In progress</div>
+            <div class="table__cell table__cell--status">In progress</div>
+            <div class="table__cell table__cell--status">In progress</div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer style="margin-top: 120px; display: flex; flex-direction: column; gap: 27px; align-items: center;">
+          <ds-cycle type="language"></ds-cycle>
+          <p style="font-family: var(--font-regular); font-size: 18px; letter-spacing: -0.38px; color: rgba(0,0,0,0.3);"><ds-text>© 2025 0001</ds-text></p>
+        </footer>
+      </main>
+    </div>
+
+      </body>
+</html>
