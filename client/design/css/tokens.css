@@ -40,7 +40,7 @@
 
 /* Light theme (default) */
 [data-theme="light"] {
-  --background: var(--base-white);
+  --background: #FFFFE0;
   --text-color: var(--base-black);
   --text-color-dimmed: var(--base-slate);
 }
