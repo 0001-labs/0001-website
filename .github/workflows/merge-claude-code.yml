@@ -32,11 +32,13 @@ jobs:
             COMMIT_MSG="Update from Claude"
           fi
 
+          TITLE="0001 Cloud – ${COMMIT_MSG}"
+
           # Create PR with clean title
-          PR_URL=$(gh pr create --base main --head ${{ github.ref_name }} --title "0001 Cloud – ${COMMIT_MSG}" --body "")
+          PR_URL=$(gh pr create --base main --head ${{ github.ref_name }} --title "$TITLE" --body "")
           echo "Created PR: $PR_URL"
 
-          # Merge PR and delete branch
-          gh pr merge --squash --delete-branch
+          # Merge PR with explicit commit message (no co-authors)
+          gh pr merge --squash --delete-branch --subject "$TITLE"
         env:
           GH_TOKEN: ${{ secrets.PAT }}
