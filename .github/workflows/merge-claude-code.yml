@@ -1,0 +1,44 @@
+name: Merge Claude Code Cloud Work
+on:
+  push:
+    branches:
+      - 'claude/**'
+
+jobs:
+  create-and-merge-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+          token: ${{ secrets.PAT }}
+
+      - name: Fetch main branch
+        run: git fetch origin main
+
+      - name: Configure Git user
+        run: |
+          git config --global user.name "Jo4712"
+          git config --global user.email "jaa90@icloud.com"
+
+      - name: Create and Merge Pull Request
+        run: |
+          # Get the last commit message from this branch
+          COMMIT_MSG=$(git log origin/main..${{ github.ref_name }} --pretty=format:"%s" | head -1)
+
+          # Fallback if empty
+          if [ -z "$COMMIT_MSG" ]; then
+            COMMIT_MSG="Update from Claude"
+          fi
+
+          TITLE="0001 Cloud – ${COMMIT_MSG}"
+
+          # Create PR with clean title
+          PR_URL=$(gh pr create --base main --head ${{ github.ref_name }} --title "$TITLE" --body "")
+          echo "Created PR: $PR_URL"
+
+          # Merge PR with explicit commit message (no co-authors)
+          gh pr merge --squash --delete-branch --subject "$TITLE" --body ""
+        env:
+          GH_TOKEN: ${{ secrets.PAT }}
