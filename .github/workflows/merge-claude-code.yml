@@ -12,26 +12,22 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
 
       - name: Configure Git user
         run: |
           git config --global user.name "Jo4712"
           git config --global user.email "jaa90@icloud.com"
 
-      - name: Create Pull Request
-        id: create-pr
-        uses: peter-evans/create-pull-request@v5
-        with:
-          branch: ${{ github.ref_name }}
-          base: main
-          title: "Auto PR: ${{ github.ref_name }}"
-          body: "Automated PR from Claude branch"
-          delete-branch: true
-          committer: Jo4712 <jaa90@icloud.com>
-          author: Jo4712 <jaa90@icloud.com>
+      - name: Create and Merge Pull Request
+        run: |
+          # Create PR
+          PR_URL=$(gh pr create --base main --head ${{ github.ref_name }} --title "Auto PR: ${{ github.ref_name }}" --body "Automated PR from Claude branch")
+          echo "Created PR: $PR_URL"
 
-      - name: Merge Pull Request
-        if: steps.create-pr.outputs.pull-request-number
-        run: gh pr merge ${{ steps.create-pr.outputs.pull-request-number }} --squash --delete-branch
+          # Merge PR and delete branch
+          gh pr merge --squash --delete-branch
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
