@@ -14,6 +14,9 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.PAT }}
 
+      - name: Fetch main branch
+        run: git fetch origin main
+
       - name: Configure Git user
         run: |
           git config --global user.name "Jo4712"
@@ -22,7 +25,12 @@ jobs:
       - name: Create and Merge Pull Request
         run: |
           # Get the last commit message from this branch
-          COMMIT_MSG=$(git log main..${{ github.ref_name }} --pretty=format:"%s" | head -1)
+          COMMIT_MSG=$(git log origin/main..${{ github.ref_name }} --pretty=format:"%s" | head -1)
+
+          # Fallback if empty
+          if [ -z "$COMMIT_MSG" ]; then
+            COMMIT_MSG="Update from Claude"
+          fi
 
           # Create PR with clean title
           PR_URL=$(gh pr create --base main --head ${{ github.ref_name }} --title "0001 Cloud – ${COMMIT_MSG}" --body "")
