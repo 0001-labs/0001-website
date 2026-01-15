@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About - 0001</title>
-    <meta name="description" content="About 0001 - We design digital products." />
+    <title>Pizza - 0001</title>
+    <meta name="description" content="Pizza - Our favorite pizzas at 0001." />
 
     <!-- Prevent FOUC -->
     <script>
@@ -32,7 +32,7 @@
     <script type="module" src="https://cdn.jsdelivr.net/npm/ds-one@0.3.0-alpha.7/dist/ds-one.bundle.min.js"></script>
 
     <style>
-      .about-content {
+      .pizza-content {
         padding: 300px 60px 120px;
         background-color: var(--base-white);
         border: var(--border-default);
@@ -42,43 +42,32 @@
   <body>
     <div class="page">
       <main class="main">
-        <section class="about-content">
+        <section class="pizza-content">
           <div class="content" style="max-width: 495px;">
             <!-- Title and description -->
             <div style="display: flex; flex-direction: column; gap: 32px; margin-bottom: 64px;">
-              <h1 class="title"><ds-text>About 0001</ds-text></h1>
+              <h1 class="title"><ds-text>Pizza</ds-text></h1>
               <div class="text" style="max-width: 451px; line-height: 1.6;">
-                <p style="margin-bottom: 16px;"><ds-text>0001 was founded in 2024 with a simple mission: design digital products that tell stories.</ds-text></p>
-                <p style="margin-bottom: 16px;"><ds-text>We believe in component-first development, scaling through reuse, and building agentic-first software.</ds-text></p>
-                <p><ds-text>Our products enable solo builders to operate at the scale of small teams.</ds-text></p>
+                <p style="margin-bottom: 16px;"><ds-text>At 0001, we believe great digital products and great pizza share a common philosophy: quality ingredients, careful craftsmanship, and attention to detail.</ds-text></p>
+                <p><ds-text>Here are some of our team favorites.</ds-text></p>
               </div>
             </div>
 
-            <!-- Photo -->
-            <div style="width: 400px; height: 300px; margin-bottom: 64px;">
-              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800" alt="Office" style="width: 100%; height: 100%; object-fit: cover;" />
-            </div>
-
-            <!-- Offices -->
+            <!-- Pizza menu -->
             <div style="margin-bottom: 64px;">
-              <h2 class="title title--small" style="margin-bottom: 64px;"><ds-text>Our offices</ds-text></h2>
-              <div class="offices">
-                <div class="office">
-                  <h3 class="office__title"><ds-text>Copenhagen</ds-text></h3>
-                  <address class="office__address">
-                    Tomsgårdsvej 22A,<br />
-                    DK2400<br />
-                    København NV
-                  </address>
+              <h2 class="title title--small" style="margin-bottom: 64px;"><ds-text>Our favorites</ds-text></h2>
+              <div class="services-list" style="display: flex; flex-direction: column; gap: 24px;">
+                <div>
+                  <span class="services-list__item"><ds-text>Margherita</ds-text></span>
+                  <p class="services-list__description"><ds-text>San Marzano tomatoes, fresh mozzarella, basil, olive oil.</ds-text></p>
                 </div>
-                <div class="office" style="width: 235px;">
-                  <h3 class="office__title"><ds-text>Tokyo</ds-text></h3>
-                  <address class="office__address">
-                    1F, Takagi Building,<br />
-                    2-20-7 Azabujuban,<br />
-                    Minato-ku,<br />
-                    Tokyo 106-0045
-                  </address>
+                <div>
+                  <span class="services-list__item"><ds-text>Quattro Formaggi</ds-text></span>
+                  <p class="services-list__description"><ds-text>Mozzarella, gorgonzola, parmesan, fontina.</ds-text></p>
+                </div>
+                <div>
+                  <span class="services-list__item"><ds-text>Diavola</ds-text></span>
+                  <p class="services-list__description"><ds-text>Spicy salami, tomato sauce, mozzarella, chili flakes.</ds-text></p>
                 </div>
               </div>
             </div>
@@ -93,8 +82,8 @@
           <nav style="display: flex; justify-content: flex-end; gap: 32px;">
             <a href="/products" class="footer__link"><ds-text>Products</ds-text></a>
             <a href="/services" class="footer__link"><ds-text>Services</ds-text></a>
-            <a href="/about" class="footer__link" style="color: var(--every-green);"><ds-text>About</ds-text></a>
-            <a href="/pizza" class="footer__link"><ds-text>Pizza</ds-text></a>
+            <a href="/about" class="footer__link"><ds-text>About</ds-text></a>
+            <a href="/pizza" class="footer__link" style="color: var(--every-green);"><ds-text>Pizza</ds-text></a>
           </nav>
           <div class="footer__bottom" style="margin-top: 20px;">
             <p class="footer__copyright"><ds-text>© 2025 0001</ds-text></p>
