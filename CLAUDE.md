@@ -26,3 +26,7 @@ Marketing and portfolio website for 0001 labs.
 ## Environment
 
 Requires `NOTION_API_KEY` in `.env`
+
+## GitHub Actions
+
+- Auto-merge workflow for `claude/**` branches
