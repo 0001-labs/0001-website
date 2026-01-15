@@ -1,0 +1,37 @@
+name: Merge Claude Code Cloud Work
+on:
+  push:
+    branches:
+      - 'claude/**'
+
+jobs:
+  create-and-merge-pr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure Git user
+        run: |
+          git config --global user.name "Jo4712"
+          git config --global user.email "jaa90@icloud.com"
+
+      - name: Create Pull Request
+        id: create-pr
+        uses: peter-evans/create-pull-request@v5
+        with:
+          branch: ${{ github.ref_name }}
+          base: main
+          title: "Auto PR: ${{ github.ref_name }}"
+          body: "Automated PR from Claude branch"
+          delete-branch: true
+          committer: Jo4712 <jaa90@icloud.com>
+          author: Jo4712 <jaa90@icloud.com>
+
+      - name: Merge Pull Request
+        if: steps.create-pr.outputs.pull-request-number
+        run: gh pr merge ${{ steps.create-pr.outputs.pull-request-number }} --squash --delete-branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
