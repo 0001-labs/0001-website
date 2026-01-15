@@ -40,14 +40,14 @@
 
 /* Light theme (default) */
 [data-theme="light"] {
-  --background: #ffff00;
+  --background: #ff0000;
   --text-color: var(--base-black);
   --text-color-dimmed: var(--base-slate);
 }
 
 /* Dark theme */
 [data-theme="dark"] {
-  --background: #ffd700;
+  --background: #ff0000;
   --text-color: var(--base-white);
   --text-color-dimmed: var(--base-light-grey);
 }
